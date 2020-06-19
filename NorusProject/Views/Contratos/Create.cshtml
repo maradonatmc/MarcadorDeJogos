@@ -1,0 +1,64 @@
+﻿@model NorusProject.Models.ViewModels.ContratosFormViewModel
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Contratos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">            
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Contratos.NumeroContrato" class="control-label"></label>
+                <input asp-for="Contratos.NumeroContrato" class="form-control" />
+                <span asp-validation-for="Contratos.NumeroContrato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contratos.TipoContrato" class="control-label"></label>
+                <select asp-for="Contratos.TipoContrato" class="form-control">
+                    <option>Compra</option>
+                    <option>Venda</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contratos.QtdNegociada" class="control-label"></label>
+                <input asp-for="Contratos.QtdNegociada" class="form-control" />
+                <span asp-validation-for="Contratos.QtdNegociada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contratos.VlrNegociado" class="control-label"></label>
+                <input asp-for="Contratos.VlrNegociado" class="form-control" />
+                <span asp-validation-for="Contratos.VlrNegociado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contratos.MesAnoInicioContrato" class="control-label"></label>
+                <input asp-for="Contratos.MesAnoInicioContrato" class="form-control" />
+                <span asp-validation-for="Contratos.MesAnoInicioContrato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contratos.DuracaoMesesContrato" class="control-label"></label>
+                <input asp-for="Contratos.DuracaoMesesContrato" class="form-control" />
+                <span asp-validation-for="Contratos.DuracaoMesesContrato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contratos.ClientesId" class="control-label"></label>
+                <select asp-for="Contratos.ClientesId" class="form-control"
+                        asp-items="@(new SelectList(Model.Clientes, "Id", "Nome"))"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+                <a asp-action="Index" asp-controller="Home" class="btn btn-warning" onclick="return confirm('Deseja continuar?')">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
