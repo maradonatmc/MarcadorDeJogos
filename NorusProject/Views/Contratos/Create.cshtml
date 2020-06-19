@@ -9,7 +9,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">            
+        <form asp-action="Create">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Contratos.NumeroContrato" class="control-label"></label>
@@ -47,6 +47,10 @@
                 <label asp-for="Contratos.ClientesId" class="control-label"></label>
                 <select asp-for="Contratos.ClientesId" class="form-control"
                         asp-items="@(new SelectList(Model.Clientes, "Id", "Nome"))"></select>
+            </div>
+            <div class="form-group">
+                <label for="file" class="control-label">Arquivo do Contrato</label>
+                <input type="file" name="file" id="file" /><br><br>
             </div>
 
             <div class="form-group">

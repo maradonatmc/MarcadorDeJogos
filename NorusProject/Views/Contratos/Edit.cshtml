@@ -54,6 +54,10 @@
                 <select asp-for="Contratos.ClientesId" class="form-control"
                         asp-items="@(new SelectList(Model.Clientes, "Id", "Nome"))"></select>
             </div>
+            <div class="form-group">
+                <label for="file" class="control-label">Arquivo do Contrato</label>
+                <input type="file" name="file" id="file" /><br><br>
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-success" />

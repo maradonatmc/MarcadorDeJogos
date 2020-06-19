@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using NorusProject.Models;
 using NorusProject.Models.ViewModels;
 using NorusProject.Services;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace NorusProject.Controllers
 {
@@ -105,13 +107,27 @@ namespace NorusProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Contratos contratos) {
+        public async Task<IActionResult> Create(Contratos contratos, IFormFile file) {
             if (!ModelState.IsValid) {
                 var clientes = await _clientesService.FindAllAsync();
                 var viewModel = new ContratosFormViewModel { Contratos = contratos, Clientes = clientes };
 
                 return View(viewModel);
             }
+
+            string caminho = "";
+
+            if (file != null && file.Length > 0)
+            {
+                caminho = Path.GetTempFileName() + file.FileName;
+
+                using (var stream = new FileStream(caminho, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+            }
+
+            contratos.PathArquivo = System.Text.ASCIIEncoding.Default.GetBytes(caminho);
 
             await _contratosService.InsertAsync(contratos);
             return RedirectToAction(nameof(Index), "Home");
