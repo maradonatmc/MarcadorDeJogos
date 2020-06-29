@@ -1,0 +1,79 @@
+﻿@model MarcadorDeJogos.Models.ConfigGeneral
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Configurações General</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.FlgUtilizaTotal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlgUtilizaTotal)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.FlgJogoSequencial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlgJogoSequencial)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VlrFula)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VlrFula)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VlrFulaMao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VlrFulaMao)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VlrSequencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VlrSequencia)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VlrSequenciaMao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VlrSequenciaMao)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VlrQuadra)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VlrQuadra)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VlrQuadraMao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VlrQuadraMao)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VlrGeneral)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VlrGeneral)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VlrGeneralMao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VlrGeneralMao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.Id">Editar</a>
+    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model.Id">Excluir</a>
+    <a asp-action="Visualizar">Voltar</a>
+</div>

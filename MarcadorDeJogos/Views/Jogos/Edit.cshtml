@@ -1,0 +1,43 @@
+﻿@model MarcadorDeJogos.Models.ViewModels.JogosFormViewModel
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Jogos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <globalization culture="en-us" />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Jogos.Id" class="control-label"></label>
+                <input asp-for="Jogos.Id" class="form-control" readonly="readonly" />
+                <span asp-validation-for="Jogos.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jogos.NomeJogo" class="control-label"></label>
+                <input asp-for="Jogos.NomeJogo" class="form-control" />
+                <span asp-validation-for="Jogos.NomeJogo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jogos.TipoJogoId" class="control-label"></label>
+                <select asp-for="Jogos.TipoJogoId" class="form-control"
+                        asp-items="@(new SelectList(Model.TipoJogo, "Id", "NomeTipoJogo"))"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+                <a asp-action="Index" asp-controller="Home" class="btn btn-warning" onclick="return confirm('Deseja continuar?')">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

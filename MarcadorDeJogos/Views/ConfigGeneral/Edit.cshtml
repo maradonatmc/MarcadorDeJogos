@@ -1,0 +1,87 @@
+﻿@model MarcadorDeJogos.Models.ViewModels.ConfigGeneralFormViewModel
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Configurações General</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <globalization culture="en-us" />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.Id" class="control-label"></label>
+                <input asp-for="ConfigGeneral.Id" class="form-control" readonly="readonly" />
+                <span asp-validation-for="ConfigGeneral.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.FlgUtilizaTotal" class="control-label"></label>
+                <select asp-for="ConfigGeneral.FlgUtilizaTotal" class="form-control">
+                    <option value="0">Não</option>
+                    <option value="1">Sim</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.FlgJogoSequencial" class="control-label"></label>
+                <select asp-for="ConfigGeneral.FlgJogoSequencial" class="form-control">
+                    <option value="0">Não</option>
+                    <option value="1">Sim</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.VlrFula" class="control-label"></label>
+                <input asp-for="ConfigGeneral.VlrFula" class="form-control" />
+                <span asp-validation-for="ConfigGeneral.VlrFula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.VlrFulaMao" class="control-label"></label>
+                <input asp-for="ConfigGeneral.VlrFulaMao" class="form-control" />
+                <span asp-validation-for="ConfigGeneral.VlrFulaMao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.VlrSequencia" class="control-label"></label>
+                <input asp-for="ConfigGeneral.VlrSequencia" class="form-control" />
+                <span asp-validation-for="ConfigGeneral.VlrSequencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.VlrSequenciaMao" class="control-label"></label>
+                <input asp-for="ConfigGeneral.VlrSequenciaMao" class="form-control" />
+                <span asp-validation-for="ConfigGeneral.VlrSequenciaMao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.VlrQuadra" class="control-label"></label>
+                <input asp-for="ConfigGeneral.VlrQuadra" class="form-control" />
+                <span asp-validation-for="ConfigGeneral.VlrQuadra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.VlrQuadraMao" class="control-label"></label>
+                <input asp-for="ConfigGeneral.VlrQuadraMao" class="form-control" />
+                <span asp-validation-for="ConfigGeneral.VlrQuadraMao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.VlrGeneral" class="control-label"></label>
+                <input asp-for="ConfigGeneral.VlrGeneral" class="form-control" />
+                <span asp-validation-for="ConfigGeneral.VlrGeneral" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfigGeneral.VlrGeneralMao" class="control-label"></label>
+                <input asp-for="ConfigGeneral.VlrGeneralMao" class="form-control" />
+                <span asp-validation-for="ConfigGeneral.VlrGeneralMao" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+                <a asp-action="Index" asp-controller="Home" class="btn btn-warning" onclick="return confirm('Deseja continuar?')">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
